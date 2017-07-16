@@ -1,0 +1,92 @@
+=========  Table Per SubClass ==================
+In this case No of Tables required in the database = No of Classes (Parent class + No of chlid classes)
+These entity classes are related with the help of Primary Key / Foreign Key relationship
+In child class we need not define the key attribute. Sub class stores the Sub Class specific info and defines the
+column name in the Sub class @PrimaryKeyColumn based on which the relationship between entities needs to be maintained.
+The Parent class hold the key attribute and data shared by child classes.
+
+create table employee103(
+ id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ name varchar(20)
+);
+
+create table regularemployee103(
+ eid int(11) NOT NULL PRIMARY KEY,
+ salary decimal(10,2),
+ bonus int(11),
+  FOREIGN KEY (eid) REFERENCES employee103 (id)
+);
+
+create table contractemployee103(
+ eid int(11) NOT NULL PRIMARY KEY,
+ pay_per_hour decimal(10,2),
+ contract_duration varchar(20),
+ FOREIGN KEY (eid) REFERENCES employee103 (id)
+);
+
+create table customer(
+	customerid INT NOT NULL AUTO_INCREMENT,
+	customername VARCHAR(20),
+	doorno VARCHAR(10),
+	street VARCHAR(20),
+	city VARCHAR(20),
+	state VARCHAR(20),
+	pincode VARCHAR(10),
+	contactno VARCHAR(15),
+	emailid VARCHAR(20),
+	PRIMARY KEY(customerid)
+);
+
+create table payment(
+  paymentid INT NOT NULL AUTO_INCREMENT,
+  amountpaid DECIMAL(10,2),
+  paiddate DATE,
+  customerno INT,
+  PRIMARY KEY(paymentid),
+  FOREIGN KEY(customerno) REFERENCES
+  CUSTOMER(customerid)
+
+ );
+
+create table creditcardpayment(
+ creditcardpaymentid INT NOT NULL,
+ creditcardno VARCHAR(20),
+ expirymonth VARCHAR(15),
+ expiryyear  INT,
+ PRIMARY KEY(creditcardpaymentid)
+);
+
+========= Single Table Per Class Hierarchy ===============
+
+create table employee101(
+ id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ name varchar(20),
+ employmentType varchar(20),
+ salary decimal(10,2),
+ bonus int(11),
+ pay_per_hour decimal(10,2),
+ contract_duration varchar(20)
+);
+
+
+=========  Table Per Concrete Class Hierarchy ===============
+
+create table employee102(
+ id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ name varchar(20)
+);
+
+create table regularemployee102(
+ id int(11) NOT NULL PRIMARY KEY,
+ name varchar(20),
+ salary decimal(10,2),
+ bonus int(11)
+);
+
+create table contractemployee102(
+ id int(11) NOT NULL PRIMARY KEY,
+ name varchar(20),
+ pay_per_hour decimal(10,2),
+ contract_duration varchar(20)
+);
+

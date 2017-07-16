@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show_sql">true</property>
+		
+		<mapping class="com.examples.table.per.subclass.example1.Employee"/>  
+        <mapping class="com.examples.table.per.subclass.example1.Contract_Employee"/>  
+        <mapping class="com.examples.table.per.subclass.example1.Regular_Employee"/> 
+        
+		<mapping class="com.examples.table.per.subclass.example2.Customer"/>
+		<mapping class="com.examples.table.per.subclass.example2.Payment"/>
+		<mapping class="com.examples.table.per.subclass.example2.CreditCardPayment"/>
+		
+		<mapping class="com.examples.one.table.perclass.hierarchy.Employee"/>  
+        <mapping class="com.examples.one.table.perclass.hierarchy.Contract_Employee"/>  
+        <mapping class="com.examples.one.table.perclass.hierarchy.Regular_Employee"/> 
+        
+        <mapping class="com.examples.table.per.concreteclass.Employee"/>  
+        <mapping class="com.examples.table.per.concreteclass.Contract_Employee"/>  
+        <mapping class="com.examples.table.per.concreteclass.Regular_Employee"/> 
+       
+	
+	</session-factory>
+</hibernate-configuration>
