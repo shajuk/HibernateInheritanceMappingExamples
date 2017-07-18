@@ -69,7 +69,7 @@ create table employee101(
 );
 
 
-=========  Table Per Concrete Class Hierarchy ===============
+=========  Table Per Concrete Class Hierarchy ============
 
 create table employee102(
  id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
